@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-emisor-cby-prod
+  namespace: tools
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:Cobre-Colombia/gitops.git'
+    path: cby/core-emisor
+    targetRevision: main
+  destination:
+    server: 'cluster-cobre-prd-cmp1'
+    namespace: cby-prod
+  syncPolicy:
+    automated: {}

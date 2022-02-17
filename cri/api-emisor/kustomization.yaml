@@ -1,0 +1,5 @@
+   commonLabels:
+     app: api-emisor-cri-prod
+   resources:
+   - api-emisor-deployment-cri-prod.yml
+   - api-emisor-svc-cri-prod.yml

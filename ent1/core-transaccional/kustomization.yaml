@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-transaccional-ent1-prod
+   resources:
+   - core-transaccional-deployment-ent1-prod.yml
+   - core-transaccional-svc-ent1-prod.yml

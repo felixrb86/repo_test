@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-transaccional-cri-prod
+   resources:
+   - core-transaccional-deployment-cri-prod.yml
+   - core-transaccional-svc-cri-prod.yml

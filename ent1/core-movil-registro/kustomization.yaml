@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-registro-ent1-prod
+   resources:
+   - core-movil-registro-deployment-ent1-prod.yml
+   - core-movil-registro-svc-ent1-prod.yml

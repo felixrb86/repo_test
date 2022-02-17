@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-registro-cby-prod
+   resources:
+   - core-movil-registro-deployment-cby-prod.yml
+   - core-movil-registro-svc-cby-prod.yml
