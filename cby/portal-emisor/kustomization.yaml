@@ -1,5 +1,0 @@
-   commonLabels:
-     app: portal-emisor-cby-prod
-   resources:
-   - portal-emisor-deployment-cby-prod.yml
-   - portal-emisor-svc-cby-prod.yml

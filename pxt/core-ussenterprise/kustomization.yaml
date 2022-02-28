@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-ussenterprise-pxt-prod
-   resources:
-   - core-ussenterprise-deployment-pxt-prod.yml
-   - core-ussenterprise-svc-pxt-prod.yml

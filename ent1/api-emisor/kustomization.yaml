@@ -1,6 +1,0 @@
-   commonLabels:
-     app: api-emisor-ent1-prod
-   resources:
-   - api-emisor-deployment-ent1-prod.yml
-   - api-emisor-svc-ent1-prod.yml
-  #  - api-emisor-hpa-ent1-prod.yml

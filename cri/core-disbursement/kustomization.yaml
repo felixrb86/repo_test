@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-disbursement-cri-prod
-   resources:
-   - core-disbursement-deployment-cri-prod.yml
-   - core-disbursement-svc-cri-prod.yml

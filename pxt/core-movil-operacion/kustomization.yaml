@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-movil-operacion-pxt-prod
-   resources:
-   - core-movil-operacion-deployment-pxt-prod.yml
-   - core-movil-operacion-svc-pxt-prod.yml

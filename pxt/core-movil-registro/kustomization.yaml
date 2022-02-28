@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-movil-registro-pxt-prod
-   resources:
-   - core-movil-registro-deployment-pxt-prod.yml
-   - core-movil-registro-svc-pxt-prod.yml
