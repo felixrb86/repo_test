@@ -14,7 +14,7 @@ metadata:
     componente: core-transaccional
 spec:
   revisionHistoryLimit: 5
-  replicas: 1
+  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 1
@@ -130,4 +130,16 @@ spec:
             valueFrom:
               secretKeyRef:
                 name: mysecret
-                key: DB_PASSWORD_CCF32                      
+                key: DB_PASSWORD_CCF32 
+################################################
+
+          - name: DB_USER_QUARTZ
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_QUARTZ
+          - name: DB_PASSWORD_QUARTZ
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_QUARTZ
