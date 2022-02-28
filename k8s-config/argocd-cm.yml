@@ -1,0 +1,47 @@
+apiVersion: v1
+data:
+  accounts.jenkins-argocd-deploy: apiKey
+  repositories: |
+    - name: GitOps-Cobre
+      sshPrivateKeySecret:
+        key: sshPrivateKey
+        name: repo-4032037714
+      type: git
+      url: git@github.com:Cobre-Colombia/gitops.git
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/name":"argocd-cm","app.kubernetes.io/part-of":"argocd"},"name":"argocd-cm","namespace":"tools"}}
+  creationTimestamp: "2021-07-13T02:18:37Z"
+  labels:
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+        f:labels:
+          .: {}
+          f:app.kubernetes.io/name: {}
+          f:app.kubernetes.io/part-of: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2021-07-13T02:18:37Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:data:
+        .: {}
+        f:repositories: {}
+    manager: argocd-server
+    operation: Update
+    time: "2021-07-14T14:10:40Z"
+  name: argocd-cm
+  namespace: tools
+  resourceVersion: "25159343"
+  uid: 00cf6055-be7f-486b-aca5-c44b2870c946

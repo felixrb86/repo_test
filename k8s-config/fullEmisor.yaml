@@ -1,0 +1,648 @@
+#
+# Namespace para cst-qa
+#
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cst-qa
+  labels:
+    name: cst-qa
+    #istio-injection: enabled
+---
+# core-movil-operacion
+# core-movil-registro
+# core-emisor
+# #
+# # Capacidades por defecto para container en namespace cst-qa 
+# #
+# apiVersion: v1
+# kind: LimitRange
+# metadata:
+#   namespace: cst-qa
+#   name: def-limit-range
+# spec:
+#   limits:
+#   - default:
+#       memory: 512Mi
+#       cpu: 1
+#     defaultRequest:
+#       memory: 256Mi
+#       cpu: 0.5
+#     type: Container
+# ---
+# #
+# # capacidades maximas alcanzables por pods en namespace cst-qa 
+# #
+# apiVersion: v1
+# kind: LimitRange
+# metadata:
+#   namespace: cst-qa
+#   name: max-limit-range
+# spec:
+#   limits:
+#   - max:
+#       memory: 2Gi
+#       cpu: 2
+#     min:
+#       memory: 256Mi
+#       cpu: 0.5
+#     type: Container
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de api-emisor
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: api-emisor-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: api-emisor
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: api-emisor
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: api-emisor
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: api-emisor
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/api-emisor:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "50Mi"
+              cpu: "0.01"
+---
+#
+# Servicio de api-emisor
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-emisor
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: api-emisor
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de core-emisor
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: core-emisor-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: core-emisor
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: core-emisor
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: core-emisor
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: core-emisor
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/core-emisor:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "50Mi"
+              cpu: "0.01"
+          env:
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+#
+# Servicio de core-emisor
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: core-emisor
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: core-emisor
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de core-transaccional
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: core-transaccional-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: core-transaccional
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: core-transaccional
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: core-transaccional
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: core-transaccional
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/core-transaccional
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "51Mi"
+              cpu: "0.01"
+          env:
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+#
+# Servicio de core-transaccional
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: core-transaccional
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: core-transaccional
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de core-ussenterprise
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: core-ussenterprise-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: core-ussenterprise
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: core-ussenterprise
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: core-ussenterprise
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: core-ussenterprise
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/core-ussenterprise:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "50Mi"
+              cpu: "0.01"
+          env:
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+#
+# Servicio de core-ussenterprise
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: core-ussenterprise
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: core-ussenterprise
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de core-movil-operacion
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: core-movil-operacion-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: core-movil-operacion
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: core-movil-operacion
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: core-movil-operacion
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: core-movil-operacion
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/core-movil-operacion
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "50Mi"
+              cpu: "0.01"
+          env:
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+#
+# Servicio de core-movil-operacion
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: core-movil-operacion
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: core-movil-operacion
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de core-movil-registro
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: core-movil-registro-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: core-movil-registro
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: core-movil-registro
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: core-movil-registro
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: core-movil-registro
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/core-movil-registro
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "51Mi"
+              cpu: "0.01"
+          env:
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+#
+# Servicio de core-movil-registro
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: core-movil-registro
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: core-movil-registro
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de core-movil-transaccional
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: core-movil-transaccional-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: core-movil-transaccional
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: core-movil-transaccional
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: core-movil-transaccional
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: core-movil-transaccional
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/core-movil-transaccional
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "51Mi"
+              cpu: "0.01"
+          env:
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+#
+# Servicio de core-movil-transaccional
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: core-movil-transaccional
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: core-movil-transaccional
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080     
+---
+# ////////////////////////////////////////////////////////////////////
+# Deploy de portal-emisor
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en cst-qa 1.0"
+  name: portal-emisor-cst-qa
+  namespace: cst-qa
+  labels:
+    env: cst-qa
+    emisor: cst
+    componente: portal-emisor
+spec:
+  revisionHistoryLimit: 5
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: portal-emisor
+      emisor: cst
+      env: cst-qa
+  template:
+    metadata:
+      labels:
+        componente: portal-emisor
+        emisor: cst
+        env: cst-qa
+    spec:
+      containers:
+        - name: portal-emisor
+          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/qa/front-emisor:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "2000Mi"
+              cpu: "1"
+            requests:
+              memory: "50Mi"
+              cpu: "0.01"
+          env:
+            - name: MY_POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+#
+# Servicio de portal-emisor
+#
+apiVersion: v1
+kind: Service
+metadata:
+  name: portal-emisor
+  namespace: cst-qa
+spec:
+  type: NodePort
+  selector:
+    componente: portal-emisor
+    emisor: cst
+    env: cst-qa
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+---
+# ********************************************************************* 
+# ********************************************************************* 
+# Ingress de cst QA
+# ********************************************************************* 
+# ********************************************************************* 
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "cst-qa"
+  namespace: "cst-qa"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig":{ "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-2:891899566293:certificate/c30684b5-6ce3-4339-a7f2-ff19a0ae6b2e
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 443}]'
+  labels:
+    app-name: cst-qa
+spec:
+  rules:
+    - host: api-emisor-cst.qa.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "api-emisor"
+            servicePort: 8080
+    - host: portal-emisor-cst.qa.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "portal-emisor"
+            servicePort: 8080                                                             

@@ -1,0 +1,5 @@
+   commonLabels:
+     app: api-emisor-chu-prod
+   resources:
+   - api-emisor-deployment-chu-prod.yml
+   - api-emisor-svc-chu-prod.yml

@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-operacion-cby-prod
+   resources:
+   - core-movil-operacion-deployment-cby-prod.yml
+   - core-movil-operacion-svc-cby-prod.yml

@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-emisor-ent2-prod
+  namespace: tools
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Cobre-Colombia/gitops'
+    path: ent2/api-emisor
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: ent2-prod
+  syncPolicy:
+    automated: {}

@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-transaccional-cby-prod
+   resources:
+   - core-transaccional-deployment-cby-prod.yml
+   - core-transaccional-svc-cby-prod.yml
