@@ -228,3 +228,174 @@ spec:
               secretKeyRef:
                 name: mysecret
                 key: DB_PASSWORD_MAY87
+# ///////////////////Mayales Plaza////////////////////////////////////////////////
+          - name: DB_USER_MAY87
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_MAY87
+          - name: DB_PASSWORD_MAY87
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_MAY87
+
+
+# ///////////////////Venndelo.com////////////////////////////////////////////////
+          - name: DB_USER_VEN88
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_VEN88
+          - name: DB_PASSWORD_VEN88
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_VEN88
+# ///////////////////Dentix ////////////////////////////////////////////////
+          - name: DB_USER_DEN89
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_DEN89
+          - name: DB_PASSWORD_DEN89
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_DEN89
+# ///////////////////LAVAMANIA ////////////////////////////////////////////////
+          - name: DB_USER_LAV90
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_LAV90
+          - name: DB_PASSWORD_LAV90
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_LAV90
+# ///////////////////Profitline S.A.S ////////////////////////////////////////////////
+          - name: DB_USER_PRO91
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_PRO91
+          - name: DB_PASSWORD_PRO91
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_PRO91
+# ///////////////////Preki////////////////////////////////////////////////
+          - name: DB_USER_PRE92
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_PRE92
+          - name: DB_PASSWORD_PRE92
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_PRE92
+# ///////////////////Joyeria Luis Alberto Cano////////////////////////////////////////////////
+          - name: DB_USER_JOY93
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_JOY93
+          - name: DB_PASSWORD_JOY93
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_JOY93
+# ///////////////////Tecnitrauma S.A////////////////////////////////////////////////
+          - name: DB_USER_TEC94
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_TEC94
+          - name: DB_PASSWORD_TEC94
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_TEC94
+
+
+
+# ///////////////////talma////////////////////////////////////////////////
+          - name: DB_USER_TAL95
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_TAL95
+          - name: DB_PASSWORD_TAL95
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_TAL95
+# ///////////////////Altas Vistas///////////////////////////////////////////////
+          - name: DB_USER_ALT96
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_ALT96
+          - name: DB_PASSWORD_ALT96
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_ALT96
+# ///////////////////Mercadería///////////////////////////////////////////////
+          - name: DB_USER_MER97
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_MER97
+          - name: DB_PASSWORD_MER97
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_MER97
+# ///////////////////GOING///////////////////////////////////////////////
+          - name: DB_USER_GOI98
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_GOI98
+          - name: DB_PASSWORD_GOI98
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_GOI98
+# ///////////////////Proyecta-t///////////////////////////////////////////////
+          - name: DB_USER_PRT99
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_PRT99
+          - name: DB_PASSWORD_PRT99
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_PRT99
+
+# ///////////////////Monte Rojo///////////////////////////////////////////////
+          - name: DB_USER_MON101
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_MON101
+          - name: DB_PASSWORD_MON101
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_MON101
+# ///////////////////100% COMUNIEFICAZ SAS///////////////////////////////////////////////
+          - name: DB_USER_COM102
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_COM102
+          - name: DB_PASSWORD_COM102
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_COM102

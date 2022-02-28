@@ -14,7 +14,7 @@ metadata:
     componente: api-emisor
 spec:
   revisionHistoryLimit: 5
-  replicas: 1
+  replicas: 1     # solo debe correr con  un componente indico pablo
   strategy:
     rollingUpdate:
       maxSurge: 1

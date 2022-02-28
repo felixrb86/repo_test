@@ -16,7 +16,7 @@ metadata:
     componente: core-movil-operacion
 spec:
   revisionHistoryLimit: 5
-  replicas: 1
+  replicas: 3
   strategy:
     rollingUpdate:
       maxSurge: 1

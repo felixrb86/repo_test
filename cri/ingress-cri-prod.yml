@@ -73,3 +73,11 @@ spec:
           backend:
             serviceName: "portal-emisor"
             servicePort: 8080
+ ##################core-disbursement############################
+    - host: core-disbursement-cri.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-disbursement"
+            servicePort: 8080           

@@ -14,7 +14,7 @@ metadata:
     componente: core-disbursement
 spec:
   revisionHistoryLimit: 5
-  replicas: 1
+  replicas: 2
   strategy:
     rollingUpdate:
       maxSurge: 1

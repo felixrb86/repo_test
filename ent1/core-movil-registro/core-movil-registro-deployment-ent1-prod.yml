@@ -199,17 +199,7 @@ spec:
               secretKeyRef:
                 name: mysecret
                 key: DB_PASSWORD_PTE57
-# ///////////////////Promotora Palma///////////////////////////////////////////////////////
-          - name: DB_USER_PPA58
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_PPA58
-          - name: DB_PASSWORD_PPA58
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_PPA58
+
 # ///////////////////Promotora Lagos///////////////////////////////////////////////////////
           - name: DB_USER_PLA59
             valueFrom:
@@ -232,30 +222,10 @@ spec:
               secretKeyRef:
                 name: mysecret
                 key: DB_PASSWORD_MYV60
-# ///////////////////Exiplast ///////////////////////////////////////////////////////
-          - name: DB_USER_EXI61
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_EXI61
-          - name: DB_PASSWORD_EXI61
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_EXI61 
+
 # //////////////////////////////////////////////////////////////////////////
 # //////////////////////////////////////////////////////////////////////////                
-# //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_ALB26
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_ALB26
-          - name: DB_PASSWORD_ALB26
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_ALB26
+
 # //////////////////////////////////////////////////////////////////////////
           - name: DB_USER_ALA11
             valueFrom:
@@ -289,28 +259,8 @@ spec:
               secretKeyRef:
                 name: mysecret
                 key: DB_PASSWORD_BMT02      
-# //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_BOT32
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_BOT32
-          - name: DB_PASSWORD_BOT32
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_BOT32     
-# //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_BUR33
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_BUR33
-          - name: DB_PASSWORD_BUR33
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_BUR33     
+
+
 # //////////////////////////////////////////////////////////////////////////
           - name: DB_USER_CAM23
             valueFrom:
@@ -333,17 +283,7 @@ spec:
               secretKeyRef:
                 name: mysecret
                 key: DB_PASSWORD_CHE27        
-# //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_EGE34
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_EGE34
-          - name: DB_PASSWORD_EGE34
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_EGE34           
+
 # //////////////////////////////////////////////////////////////////////////
           - name: DB_USER_FCF05
             valueFrom:
@@ -567,28 +507,7 @@ spec:
               secretKeyRef:
                 name: mysecret
                 key: DB_PASSWORD_CRU35  
-# ////////////////////////// Sin Mente ////////////////////////////////////////////////
-          - name: DB_USER_SIN37
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_SIN37
-          - name: DB_PASSWORD_SIN37
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_SIN37  
-# ////////////////////////// Lobo ////////////////////////////////////////////////
-          - name: DB_USER_LOB36
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_LOB36
-          - name: DB_PASSWORD_LOB36
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_LOB36    
+
 # ////////////////////////// Fijuyama Sta MArta ////////////////////////////////////////////////
           - name: DB_USER_FJS38
             valueFrom:
