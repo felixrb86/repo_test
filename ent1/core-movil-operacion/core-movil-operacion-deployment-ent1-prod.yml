@@ -1,11 +1,8 @@
-# ////////////////////////////////////////////////////////////////////
-# Deploy de core-movil-operacion
-# ////////////////////////////////////////////////////////////////////
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kubernetes.io/change-cause: "Deploy en ent1-prod 1.0"
+    kubernetes.io/change-cause: Deploy en ent1-prod 1.0
   name: core-movil-operacion-ent1-prod
   namespace: ent1-prod
   labels:
@@ -38,14 +35,14 @@ spec:
       - name: core-movil-operacion
         image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/prod/core-movil-operacion
         ports:
-          - containerPort: 8080
+        - containerPort: 8080
         resources:
           limits:
-            memory: "2000Mi"
-            cpu: "1"
+            memory: 2000Mi
+            cpu: '1'
           requests:
-            memory: "50Mi"
-            cpu: "0.01"
+            memory: 50Mi
+            cpu: '0.01'
         env:
           - name: MY_POD_NAMESPACE
             valueFrom:

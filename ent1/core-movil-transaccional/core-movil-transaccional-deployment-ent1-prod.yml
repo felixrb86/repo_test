@@ -1,11 +1,8 @@
-# ////////////////////////////////////////////////////////////////////
-# Deploy de core-movil-transaccional
-# ////////////////////////////////////////////////////////////////////
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kubernetes.io/change-cause: "Deploy en ent1-prod 1.0"
+    kubernetes.io/change-cause: Deploy en ent1-prod 1.0
   name: core-movil-transaccional-ent1-prod
   namespace: ent1-prod
   labels:
