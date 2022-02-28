@@ -1,0 +1,5 @@
+   commonLabels:
+     app: portal-emisor-chu-prod
+   resources:
+   - portal-emisor-deployment-chu-prod.yml
+   - portal-emisor-svc-chu-prod.yml

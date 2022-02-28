@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-emisor-pxt-prod
+   resources:
+   - core-emisor-deployment-pxt-prod.yml
+   - core-emisor-svc-pxt-prod.yml

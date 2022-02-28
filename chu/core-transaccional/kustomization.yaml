@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-transaccional-chu-prod
+   resources:
+   - core-transaccional-deployment-chu-prod.yml
+   - core-transaccional-svc-chu-prod.yml

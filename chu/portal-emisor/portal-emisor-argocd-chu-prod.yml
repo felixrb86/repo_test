@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: portal-emisor-chu-prod
+  namespace: tools
+spec:
+  project: default
+  source:
+    repoURL: 'git@github.com:Cobre-Colombia/gitops.git'
+    path: chu/portal-emisor
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: chu-prod
+  syncPolicy:
+    automated: {}

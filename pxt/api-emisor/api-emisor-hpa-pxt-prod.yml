@@ -1,0 +1,45 @@
+#
+# HPA de pxt-prod
+#
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: hpa-pxt-prod
+  namespace: pxt-prod
+labels:
+    name: hpa-pxt-prod
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: api-emisor-pxt-prod
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 70
+  - type: Resource
+    resource:
+      name: memory
+      target:
+        type: AverageValue
+        averageValue: 1300Mi
+  # - type: Pods
+  #   pods:
+  #     metric:
+  #       name: packets-per-second
+  #     target:
+  #       type: AverageValue
+  #       averageValue: 1k
+  # - type: Object
+  #   object:
+  #     metricName: requests-per-second
+  #     target:
+  #       apiVersion: extensions/v1beta1
+  #       kind: Ingress
+  #       name: main-route
+  #     targetValue: 2k

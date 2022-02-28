@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-registro-chu-prod
+   resources:
+   - core-movil-registro-deployment-chu-prod.yml
+   - core-movil-registro-svc-chu-prod.yml

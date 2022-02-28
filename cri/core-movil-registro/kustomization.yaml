@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-registro-cri-prod
+   resources:
+   - core-movil-registro-deployment-cri-prod.yml
+   - core-movil-registro-svc-cri-prod.yml

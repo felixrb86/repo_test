@@ -1,0 +1,93 @@
+# ********************************************************************* 
+# ********************************************************************* 
+# Ingress de ent2-prod dev
+# ********************************************************************* 
+# ********************************************************************* 
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "ent2-prod"
+  namespace: "ent2-prod"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internal
+    alb.ingress.kubernetes.io/group.name: "ent2"
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig":{ "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-1:489231195332:certificate/e5709bbf-684e-4bd5-9d5a-6cda22e2aa7b
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+  labels:
+    app-name: ent2-prod
+spec:
+  rules:
+    - host: api-emisor-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "api-emisor"
+            servicePort: 8080
+    - host: core-emisor-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-emisor"
+            servicePort: 8080       
+    - host: core-movil-operacion-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-movil-operacion"
+            servicePort: 8080         
+    - host: core-movil-registro-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-movil-registro"
+            servicePort: 8080       
+    - host: core-movil-transaccional-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-movil-transaccional"
+            servicePort: 8080             
+    - host: core-transaccional-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-transaccional"
+            servicePort: 8080
+    - host: core-ussenterprise-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-ussenterprise"
+            servicePort: 8080   
+    - host: core-workplacebank-loans-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-workplacebank-loans"
+            servicePort: 8080            
+    - host: portal-emisor-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "portal-emisor"
+            servicePort: 8080
+    - host: core-disbursement-ent2.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-disbursement"
+            servicePort: 8080
+                        

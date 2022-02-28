@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-operacion-cri-prod
+   resources:
+   - core-movil-operacion-deployment-cri-prod.yml
+   - core-movil-operacion-svc-cri-prod.yml

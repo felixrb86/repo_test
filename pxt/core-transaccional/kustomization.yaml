@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-transaccional-pxt-prod
+   resources:
+   - core-transaccional-deployment-pxt-prod.yml
+   - core-transaccional-svc-pxt-prod.yml
