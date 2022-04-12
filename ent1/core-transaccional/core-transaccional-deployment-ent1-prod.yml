@@ -749,3 +749,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_APA147
+        - name: DB_USER_DST148
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DST148
+        - name: DB_PASSWORD_DST148
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DST148
