@@ -728,3 +728,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DAC146
+        - name: DB_USER_APA147
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_APA147
+        - name: DB_PASSWORD_APA147
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_APA147
