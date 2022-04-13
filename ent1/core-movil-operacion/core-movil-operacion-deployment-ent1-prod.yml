@@ -780,3 +780,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_AOP151
+        - name: DB_USER_DYL152
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DYL152
+        - name: DB_PASSWORD_DYL152
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DYL152
