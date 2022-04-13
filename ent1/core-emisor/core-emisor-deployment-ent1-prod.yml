@@ -748,3 +748,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DST148
+        - name: DB_USER_AEM149
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_AEM149
+        - name: DB_PASSWORD_AEM149
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_AEM149
