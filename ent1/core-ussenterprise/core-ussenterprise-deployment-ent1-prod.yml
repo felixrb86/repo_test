@@ -768,3 +768,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DOA150
+        - name: DB_USER_AOP151
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_AOP151
+        - name: DB_PASSWORD_AOP151
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_AOP151
