@@ -5,7 +5,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    kubernetes.io/change-cause: "Deploy en ent1-prod 1.0"
+    kubernetes.io/change-cause: Deploy en ent1-prod 1.0
   name: api-emisor-ent1-prod
   namespace: ent1-prod
   labels:
@@ -33,680 +33,759 @@ spec:
         env: prod
     spec:
       containers:
-        - name: api-emisor
-          image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/prod/api-emisor:latest
-          ports:
-            - containerPort: 8080
-          resources:
-            limits:
-              memory: "2000Mi"
-              cpu: "1"
-            requests:
-              memory: "50Mi"
-              cpu: "0.01"
-          env:
-          - name: MY_POD_NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
-          - name: MULTITENANCY
-            value: "true"
-          - name: DB_USER_FJY03
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_FJY03
-          - name: DB_PASSWORD_FJY03
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_FJY03
-          - name: DB_USER_PXT01
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_PXT01
-          - name: DB_PASSWORD_PXT01
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_PXT01
-          - name: DB_USER_CCF56
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_CCF56
-          - name: DB_PASSWORD_CCF56
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_CCF56
-          - name: DB_USER_CCF08
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_CCF08
-          - name: DB_PASSWORD_CCF08
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_CCF08
-          - name: DB_USER_RYM41
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_RYM41
-          - name: DB_PASSWORD_RYM41
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_RYM41
-          - name: DB_USER_LUN42
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_LUN42
-          - name: DB_PASSWORD_LUN42
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_LUN42
+      - name: api-emisor
+        image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/prod/api-emisor:latest
+        ports:
+        - containerPort: 8080
+        resources:
+          limits:
+            memory: 2000Mi
+            cpu: '1'
+          requests:
+            memory: 50Mi
+            cpu: '0.01'
+        env:
+        - name: MY_POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: MULTITENANCY
+          value: 'true'
+        - name: DB_USER_FJY03
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_FJY03
+        - name: DB_PASSWORD_FJY03
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_FJY03
+        - name: DB_USER_PXT01
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_PXT01
+        - name: DB_PASSWORD_PXT01
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_PXT01
+        - name: DB_USER_CCF56
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_CCF56
+        - name: DB_PASSWORD_CCF56
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_CCF56
+        - name: DB_USER_CCF08
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_CCF08
+        - name: DB_PASSWORD_CCF08
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_CCF08
+        - name: DB_USER_RYM41
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_RYM41
+        - name: DB_PASSWORD_RYM41
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_RYM41
+        - name: DB_USER_LUN42
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_LUN42
+        - name: DB_PASSWORD_LUN42
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_LUN42
 # ///////////////////odontoexpress///////////////////////////////////////////////// 
-          - name: DB_USER_ODO50
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_ODO50
-          - name: DB_PASSWORD_ODO50
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_ODO50
+        - name: DB_USER_ODO50
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_ODO50
+        - name: DB_PASSWORD_ODO50
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_ODO50
 # ///////////////////verdi/////////////////////////////////////////////////////// 
-          - name: DB_USER_VER51
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_VER51
-          - name: DB_PASSWORD_VER51
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_VER51
+        - name: DB_USER_VER51
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_VER51
+        - name: DB_PASSWORD_VER51
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_VER51
 # ///////////////////fithub///////////////////////////////////////////////////////
-          - name: DB_USER_FIT52
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_FIT52
-          - name: DB_PASSWORD_FIT52
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_FIT52
+        - name: DB_USER_FIT52
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_FIT52
+        - name: DB_PASSWORD_FIT52
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_FIT52
 # ///////////////////Quantica BPO///////////////////////////////////////////////////////
-          - name: DB_USER_QUA53
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_QUA53
-          - name: DB_PASSWORD_QUA53
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_QUA53
+        - name: DB_USER_QUA53
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_QUA53
+        - name: DB_PASSWORD_QUA53
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_QUA53
 # ///////////////////La Valentina Design///////////////////////////////////////////////////////
-          - name: DB_USER_LVD54
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_LVD54
-          - name: DB_PASSWORD_LVD54
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_LVD54
+        - name: DB_USER_LVD54
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_LVD54
+        - name: DB_PASSWORD_LVD54
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_LVD54
 # ///////////////////fenalco valle///////////////////////////////////////////////////////
-          - name: DB_USER_FVA55
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_FVA55
-          - name: DB_PASSWORD_FVA55
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_FVA55
+        - name: DB_USER_FVA55
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_FVA55
+        - name: DB_PASSWORD_FVA55
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_FVA55
 # ///////////////////Soluciones BPO///////////////////////////////////////////////////////
-          - name: DB_USER_SOL56
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_SOL56
-          - name: DB_PASSWORD_SOL56
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_SOL56
+        - name: DB_USER_SOL56
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SOL56
+        - name: DB_PASSWORD_SOL56
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SOL56
 # ///////////////////Promotora Terra///////////////////////////////////////////////////////
-          - name: DB_USER_PTE57
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_PTE57
-          - name: DB_PASSWORD_PTE57
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_PTE57
+        - name: DB_USER_PTE57
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_PTE57
+        - name: DB_PASSWORD_PTE57
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_PTE57
 
 # ///////////////////Promotora Lagos///////////////////////////////////////////////////////
-          - name: DB_USER_PLA59
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_PLA59
-          - name: DB_PASSWORD_PLA59
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_PLA59
+        - name: DB_USER_PLA59
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_PLA59
+        - name: DB_PASSWORD_PLA59
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_PLA59
 # ///////////////////Mejia y Villegas ///////////////////////////////////////////////////////
-          - name: DB_USER_MYV60
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_MYV60
-          - name: DB_PASSWORD_MYV60
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_MYV60
+        - name: DB_USER_MYV60
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_MYV60
+        - name: DB_PASSWORD_MYV60
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_MYV60
 
 # //////////////////////////////////////////////////////////////////////////
 # //////////////////////////////////////////////////////////////////////////                
 
 # //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_ALA11
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_ALA11
-          - name: DB_PASSWORD_ALA11
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_ALA11         
+        - name: DB_USER_ALA11
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_ALA11
+        - name: DB_PASSWORD_ALA11
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_ALA11
 # //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_AND39
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_AND39
-          - name: DB_PASSWORD_AND39
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_AND39                     
+        - name: DB_USER_AND39
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_AND39
+        - name: DB_PASSWORD_AND39
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_AND39
 # //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_BMT02
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_BMT02
-          - name: DB_PASSWORD_BMT02
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_BMT02      
+        - name: DB_USER_BMT02
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_BMT02
+        - name: DB_PASSWORD_BMT02
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_BMT02
 
 
 # //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_CAM23
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_CAM23
-          - name: DB_PASSWORD_CAM23
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_CAM23     
+        - name: DB_USER_CAM23
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_CAM23
+        - name: DB_PASSWORD_CAM23
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_CAM23
 # //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_CHE27
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_CHE27
-          - name: DB_PASSWORD_CHE27
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_CHE27        
+        - name: DB_USER_CHE27
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_CHE27
+        - name: DB_PASSWORD_CHE27
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_CHE27
 
 # //////////////////////////////////////////////////////////////////////////
-          - name: DB_USER_FCF05
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_FCF05
-          - name: DB_PASSWORD_FCF05
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_FCF05
+        - name: DB_USER_FCF05
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_FCF05
+        - name: DB_PASSWORD_FCF05
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_FCF05
 # //////////////////////////demo////////////////////////////////////////////////
-          - name: DB_USER_DEM49
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_DEM49
-          - name: DB_PASSWORD_DEM49
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_DEM49
+        - name: DB_USER_DEM49
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DEM49
+        - name: DB_PASSWORD_DEM49
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DEM49
 # //////////////////////////Molino Sonora////////////////////////////////////////////////
-          - name: DB_USER_MSO64
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_MSO64
-          - name: DB_PASSWORD_MSO64
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_MSO64
+        - name: DB_USER_MSO64
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_MSO64
+        - name: DB_PASSWORD_MSO64
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_MSO64
 # //////////////////////////tu llanta////////////////////////////////////////////////
-          - name: DB_USER_TLL65
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_TLL65
-          - name: DB_PASSWORD_TLL65
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_TLL65
+        - name: DB_USER_TLL65
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_TLL65
+        - name: DB_PASSWORD_TLL65
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_TLL65
 # //////////////////////////fondefal////////////////////////////////////////////////
-          - name: DB_USER_FON66
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_FON66
-          - name: DB_PASSWORD_FON66
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_FON66    
+        - name: DB_USER_FON66
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_FON66
+        - name: DB_PASSWORD_FON66
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_FON66
 # //////////////////////////sanchez polo////////////////////////////////////////////////
-          - name: DB_USER_SAP67
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_SAP67
-          - name: DB_PASSWORD_SAP67
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_SAP67              
+        - name: DB_USER_SAP67
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SAP67
+        - name: DB_PASSWORD_SAP67
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SAP67
 # //////////////////////////////////////////////////////////////////////////
 # ////////////////////////// 2da Migracion from ECS to k8s /////////////////
 # //////////////////////////////////////////////////////////////////////////
 # ////////////////////////// Solmex ////////////////////////////////////////////////
-          - name: DB_USER_SMX04
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_SMX04
-          - name: DB_PASSWORD_SMX04
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_SMX04         
+        - name: DB_USER_SMX04
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SMX04
+        - name: DB_PASSWORD_SMX04
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SMX04
 # ////////////////////////// Gematours ////////////////////////////////////////////////
-          - name: DB_USER_GMT06
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_GMT06
-          - name: DB_PASSWORD_GMT06
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_GMT06          
+        - name: DB_USER_GMT06
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_GMT06
+        - name: DB_PASSWORD_GMT06
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_GMT06
 # ////////////////////////// Juanautos ////////////////////////////////////////////////
-          - name: DB_USER_JAS08
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_JAS08
-          - name: DB_PASSWORD_JAS08
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_JAS08   
+        - name: DB_USER_JAS08
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_JAS08
+        - name: DB_PASSWORD_JAS08
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_JAS08
 # ////////////////////////// Mensajeros Urbanos ////////////////////////////////////////////////
-          - name: DB_USER_MUR09
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_MUR09
-          - name: DB_PASSWORD_MUR09
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_MUR09        
+        - name: DB_USER_MUR09
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_MUR09
+        - name: DB_PASSWORD_MUR09
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_MUR09
 # ////////////////////////// Kipi ////////////////////////////////////////////////
-          - name: DB_USER_KIP10
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_KIP10
-          - name: DB_PASSWORD_KIP10
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_KIP10  
+        - name: DB_USER_KIP10
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_KIP10
+        - name: DB_PASSWORD_KIP10
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_KIP10
 # ////////////////////////// Frubana ////////////////////////////////////////////////
-          - name: DB_USER_FRU21
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_FRU21
-          - name: DB_PASSWORD_FRU21
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_FRU21 
+        - name: DB_USER_FRU21
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_FRU21
+        - name: DB_PASSWORD_FRU21
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_FRU21
 # ////////////////////////// Time Jobs ////////////////////////////////////////////////
-          - name: DB_USER_TIM22
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_TIM22
-          - name: DB_PASSWORD_TIM22
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_TIM22           
+        - name: DB_USER_TIM22
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_TIM22
+        - name: DB_PASSWORD_TIM22
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_TIM22
 # ////////////////////////// The Pub ////////////////////////////////////////////////
-          - name: DB_USER_PUB24
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_PUB24
-          - name: DB_PASSWORD_PUB24
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_PUB24
+        - name: DB_USER_PUB24
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_PUB24
+        - name: DB_PASSWORD_PUB24
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_PUB24
 # ////////////////////////// Megatiendas ////////////////////////////////////////////////
-          - name: DB_USER_MGT25
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_MGT25
-          - name: DB_PASSWORD_MGT25
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_MGT25 
+        - name: DB_USER_MGT25
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_MGT25
+        - name: DB_PASSWORD_MGT25
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_MGT25
 # ////////////////////////// Sacsa ////////////////////////////////////////////////
-          - name: DB_USER_SAC28
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_SAC28
-          - name: DB_PASSWORD_SAC28
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_SAC28       
+        - name: DB_USER_SAC28
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SAC28
+        - name: DB_PASSWORD_SAC28
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SAC28
 # ////////////////////////// Jokr ////////////////////////////////////////////////
-          - name: DB_USER_JOK29
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_JOK29
-          - name: DB_PASSWORD_JOK29
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_JOK29
+        - name: DB_USER_JOK29
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_JOK29
+        - name: DB_PASSWORD_JOK29
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_JOK29
 # ////////////////////////// Trip ////////////////////////////////////////////////
-          - name: DB_USER_TRI30
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_TRI30
-          - name: DB_PASSWORD_TRI30
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_TRI30   
+        - name: DB_USER_TRI30
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_TRI30
+        - name: DB_PASSWORD_TRI30
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_TRI30
 # ////////////////////////// Geiico ////////////////////////////////////////////////
-          - name: DB_USER_GEI31
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_GEI31
-          - name: DB_PASSWORD_GEI31
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_GEI31     
+        - name: DB_USER_GEI31
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_GEI31
+        - name: DB_PASSWORD_GEI31
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_GEI31
 # ////////////////////////// La Cruda ////////////////////////////////////////////////
-          - name: DB_USER_CRU35
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_CRU35
-          - name: DB_PASSWORD_CRU35
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_CRU35  
+        - name: DB_USER_CRU35
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_CRU35
+        - name: DB_PASSWORD_CRU35
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_CRU35
 
 # ////////////////////////// Fijuyama Sta MArta ////////////////////////////////////////////////
-          - name: DB_USER_FJS38
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_FJS38
-          - name: DB_PASSWORD_FJS38
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_FJS38 
+        - name: DB_USER_FJS38
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_FJS38
+        - name: DB_PASSWORD_FJS38
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_FJS38
 # ////////////////////////// Yokomotor ////////////////////////////////////////////////
-          - name: DB_USER_YKM40
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_YKM40
-          - name: DB_PASSWORD_YKM40
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_YKM40 
+        - name: DB_USER_YKM40
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_YKM40
+        - name: DB_PASSWORD_YKM40
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_YKM40
 # ////////////////////////// Incoarroz ////////////////////////////////////////////////
-          - name: DB_USER_ICA45
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_ICA45
-          - name: DB_PASSWORD_ICA45
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_ICA45 
+        - name: DB_USER_ICA45
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_ICA45
+        - name: DB_PASSWORD_ICA45
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_ICA45
 # ////////////////////////// SMS Electronic ////////////////////////////////////////////////
-          - name: DB_USER_SMS46
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_SMS46
-          - name: DB_PASSWORD_SMS46
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_SMS46  
+        - name: DB_USER_SMS46
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SMS46
+        - name: DB_PASSWORD_SMS46
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SMS46
 # ////////////////////////// Caja Britanica ////////////////////////////////////////////////
-          - name: DB_USER_CAS47
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_CAS47
-          - name: DB_PASSWORD_CAS47
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_CAS47  
+        - name: DB_USER_CAS47
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_CAS47
+        - name: DB_PASSWORD_CAS47
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_CAS47
 # ////////////////////////// Harrisa Foods ////////////////////////////////////////////////
-          - name: DB_USER_HFD48
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_HFD48
-          - name: DB_PASSWORD_HFD48
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_HFD48 
+        - name: DB_USER_HFD48
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_HFD48
+        - name: DB_PASSWORD_HFD48
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_HFD48
 # ////////////////////////// Promotora Innova Park S.A.S ////////////////////////////////////////////////
-          - name: DB_USER_PIP69
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_PIP69
-          - name: DB_PASSWORD_PIP69
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_PIP69   
+        - name: DB_USER_PIP69
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_PIP69
+        - name: DB_PASSWORD_PIP69
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_PIP69
 # ////////////////////////// Araujo y Segovia Zona Norte ////////////////////////////////////////////////
-          - name: DB_USER_ASN70
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_ASN70
-          - name: DB_PASSWORD_ASN70
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_ASN70                        
+        - name: DB_USER_ASN70
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_ASN70
+        - name: DB_PASSWORD_ASN70
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_ASN70
 # ////////////////////////// Araujo y Segovia Cordoba ////////////////////////////////////////////////
-          - name: DB_USER_ASC71
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_ASC71
-          - name: DB_PASSWORD_ASC71
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_ASC71                
+        - name: DB_USER_ASC71
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_ASC71
+        - name: DB_PASSWORD_ASC71
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_ASC71
 # ////////////////////////// OperadoraH2R ////////////////////////////////////////////////
-          - name: DB_USER_OPE72
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_OPE72
-          - name: DB_PASSWORD_OPE72
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_OPE72 
+        - name: DB_USER_OPE72
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_OPE72
+        - name: DB_PASSWORD_OPE72
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_OPE72
 
 ############################################################################################
 # ////////////////////////// REDTECHNOLOGY SAS ////////////////////////////////////////////////
-          - name: DB_USER_RAD103
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_RAD103
-          - name: DB_PASSWORD_RAD103
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_RAD103 
+        - name: DB_USER_RAD103
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_RAD103
+        - name: DB_PASSWORD_RAD103
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_RAD103
 # ////////////////////////// DISTRIBUIDORA RAYCO SAS ////////////////////////////////////////////////
-          - name: DB_USER_DIS104
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_DIS104
-          - name: DB_PASSWORD_DIS104
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_DIS104 
+        - name: DB_USER_DIS104
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DIS104
+        - name: DB_PASSWORD_DIS104
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DIS104
 
 # ////////////////////////// Inversiones Escaf Haddad ////////////////////////////////////////////////
-          - name: DB_USER_IHE105
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_IHE105
-          - name: DB_PASSWORD_IHE105
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_IHE105 
+        - name: DB_USER_IHE105
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_IHE105
+        - name: DB_PASSWORD_IHE105
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_IHE105
 # ////////////////////////// THE PUB S A S ////////////////////////////////////////////////
-          - name: DB_USER_THB106
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_THB106
-          - name: DB_PASSWORD_THB106
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_THB106 
+        - name: DB_USER_THB106
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_THB106
+        - name: DB_PASSWORD_THB106
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_THB106
 # ////////////////////////// Ninania S.A.S ////////////////////////////////////////////////
-          - name: DB_USER_NAA107
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_NAA107
-          - name: DB_PASSWORD_NAA107
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_NAA107 
+        - name: DB_USER_NAA107
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_NAA107
+        - name: DB_PASSWORD_NAA107
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_NAA107
 # ////////////////////////// CLASSIC JEANS SHOPS S.A.S. ////////////////////////////////////////////////
-          - name: DB_USER_CSA108
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_CSA108
-          - name: DB_PASSWORD_CSA108
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_CSA108 
+        - name: DB_USER_CSA108
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_CSA108
+        - name: DB_PASSWORD_CSA108
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_CSA108
 # ////////////////////////// CSALES INMOBILIARIA S.A////////////////////////////////////////////////
-          - name: DB_USER_SAL109
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_SAL109
-          - name: DB_PASSWORD_SAL109
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_SAL109
+        - name: DB_USER_SAL109
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SAL109
+        - name: DB_PASSWORD_SAL109
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SAL109
 # ////////////////////////// Proyectos Montajes y Construcciones SA Promocon////////////////////////////////////////////////
-          - name: DB_USER_POO110
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_USER_POO110
-          - name: DB_PASSWORD_POO110
-            valueFrom:
-              secretKeyRef:
-                name: mysecret
-                key: DB_PASSWORD_POO110
-                                                                                                                                         
+        - name: DB_USER_POO110
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_POO110
+        - name: DB_PASSWORD_POO110
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_POO110
+        - name: DB_USER_ASE145
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_ASE145
+        - name: DB_PASSWORD_ASE145
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_ASE145
+        - name: DB_USER_DAC146
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DAC146
+        - name: DB_PASSWORD_DAC146
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DAC146
+        - name: DB_USER_APA147
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_APA147
+        - name: DB_PASSWORD_APA147
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_APA147
+        - name: DB_USER_DST148
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DST148
+        - name: DB_PASSWORD_DST148
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DST148
+        - name: DB_USER_AEM149
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_AEM149
+        - name: DB_PASSWORD_AEM149
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_AEM149
+        - name: DB_USER_DOA150
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DOA150
+        - name: DB_PASSWORD_DOA150
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DOA150
+        - name: DB_USER_AOP151
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_AOP151
+        - name: DB_PASSWORD_AOP151
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_AOP151
+        - name: DB_USER_DYL152
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DYL152
+        - name: DB_PASSWORD_DYL152
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DYL152
