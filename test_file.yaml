@@ -8,3 +8,5 @@ stringData:
   DB_PASSWORD_FJY03: C0br320.21*.0
   DB_USER_PXT01: pxt01
   DB_PASSWORD_PXT01: pxt01
+  DB_USER_AAA: aaa
+  DB_PASSWORD_AAA: aaa
