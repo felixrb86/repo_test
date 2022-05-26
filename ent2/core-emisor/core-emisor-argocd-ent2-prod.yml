@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: core-emisor-ent2-prod
-  namespace: tools
+  namespace: argocd
 spec:
   project: default
   source:
@@ -10,7 +10,7 @@ spec:
     path: ent2/core-emisor
     targetRevision: main
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://FB8DB5DB67FAA833CFDF6FF79B07AE26.gr7.us-east-1.eks.amazonaws.com'
     namespace: ent2-prod
   syncPolicy:
     automated: {}

@@ -2,15 +2,15 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: portal-emisor-cby-prod
-  namespace: tools
+  namespace: argocd
 spec:
   project: default
   source:
-    repoURL: 'git@github.com:Cobre-Colombia/gitops.git'
+    repoURL: 'https://github.com/Cobre-Colombia/gitops'
     path: cby/portal-emisor
     targetRevision: main
   destination:
-    server: 'cluster-cobre-prd-cmp1'
+    server: 'https://184BD8A204EC10D1F1697C2274052A6C.gr7.us-east-1.eks.amazonaws.com'
     namespace: cby-prod
   syncPolicy:
     automated: {}

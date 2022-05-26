@@ -1,0 +1,25 @@
+# ********************************************************************* 
+# ********************************************************************* 
+# Ingress de dev external
+# ********************************************************************* 
+# ********************************************************************* 
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "ingress-ent3-prod-ext"
+  namespace: "ent3-prod"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/group.name: "ent3-ext"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS":443}]'
+  labels:
+    app-name: ingress-prod-ent3-ext
+spec:
+  rules:
+    - host: api-emisor-ent3.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "api-emisor"
+            servicePort: 8080
