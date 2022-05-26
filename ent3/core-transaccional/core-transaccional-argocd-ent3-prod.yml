@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-transaccional-ent3-prod
+  namespace: tools
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Cobre-Colombia/gitops'
+    path: ent3/core-transaccional
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: ent3-prod
+  syncPolicy:
+    automated: {}

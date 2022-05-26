@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-operacion-ent3-prod
+   resources:
+   - core-movil-operacion-deployment-ent3-prod.yml
+   - core-movil-operacion-svc-ent3-prod.yml

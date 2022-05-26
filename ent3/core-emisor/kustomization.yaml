@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-emisor-ent3-prod
+   resources:
+   - core-emisor-deployment-ent3-prod.yml
+   - core-emisor-svc-ent3-prod.yml

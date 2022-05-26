@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-ussenterprise-ent3-prod
+   resources:
+   - core-ussenterprise-deployment-ent3-prod.yml
+   - core-ussenterprise-svc-ent3-prod.yml
