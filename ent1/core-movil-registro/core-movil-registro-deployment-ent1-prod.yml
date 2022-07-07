@@ -1024,3 +1024,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_IEO154
+        - name: DB_USER_DGE155
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DGE155
+        - name: DB_PASSWORD_DGE155
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DGE155
