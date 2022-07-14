@@ -1045,3 +1045,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_AOS156
+        - name: DB_USER_DNA157
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DNA157
+        - name: DB_PASSWORD_DNA157
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DNA157
