@@ -1066,3 +1066,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_SSA158
+        - name: DB_USER_AEP159
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_AEP159
+        - name: DB_PASSWORD_AEP159
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_AEP159
