@@ -1096,3 +1096,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DLG161
+        - name: DB_USER_DCG162
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DCG162
+        - name: DB_PASSWORD_DCG162
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DCG162
