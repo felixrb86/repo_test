@@ -1125,3 +1125,53 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DAD162
+        - name: DB_USER_SOD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SOD163
+        - name: DB_PASSWORD_SOD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SOD163
+        - name: DB_USER_SPD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SPD163
+        - name: DB_PASSWORD_SPD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SPD163
+        - name: DB_USER_SPS163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SPS163
+        - name: DB_PASSWORD_SPS163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SPS163
+        - name: DB_USER_SKA163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SKA163
+        - name: DB_PASSWORD_SKA163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SKA163
+        - name: DB_USER_SAD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SAD163
+        - name: DB_PASSWORD_SAD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SAD163
