@@ -1165,3 +1165,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_SKA163
+        - name: DB_USER_SAD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_SAD163
+        - name: DB_PASSWORD_SAD163
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_SAD163
