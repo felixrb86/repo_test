@@ -863,3 +863,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_BSA164
+        - name: DB_USER_BSR164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_BSR164
+        - name: DB_PASSWORD_BSR164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_BSR164
