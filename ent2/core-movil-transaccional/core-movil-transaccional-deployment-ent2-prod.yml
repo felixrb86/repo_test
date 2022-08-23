@@ -48,10 +48,10 @@ spec:
         lifecycle:
           preStop:
             exec:
-              command: 
-                - sh
-                - -c
-                - sleep 25
+              command:
+              - sh
+              - -c
+              - sleep 25
         readinessProbe:
           httpGet:
             path: /actuator/health
@@ -828,3 +828,33 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_PSA171
+        - name: DB_USER_BSS164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_BSS164
+        - name: DB_PASSWORD_BSS164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_BSS164
+        - name: DB_USER_BSA164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_BSA164
+        - name: DB_PASSWORD_BSA164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_BSA164
+        - name: DB_USER_BSR164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_BSR164
+        - name: DB_PASSWORD_BSR164
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_BSR164
