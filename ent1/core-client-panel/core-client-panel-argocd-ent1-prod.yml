@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: core-client-panel-ent1-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Cobre-Colombia/gitops'
+    path: ent1/core-client-panel
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: ent1-prod
+  syncPolicy:
+    automated: {}
