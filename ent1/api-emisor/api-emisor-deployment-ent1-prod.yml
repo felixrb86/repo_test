@@ -1215,3 +1215,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_ABC002
+        - name: DB_USER_DEC165
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DEC165
+        - name: DB_PASSWORD_DEC165
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DEC165
