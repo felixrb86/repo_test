@@ -141,3 +141,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_AAB123
+        - name: DB_USER_AAA111
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_AAA111
+        - name: DB_PASSWORD_AAA111
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_AAA111
