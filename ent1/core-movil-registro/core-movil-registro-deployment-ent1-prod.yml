@@ -1254,3 +1254,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DDN168
+        - name: DB_USER_DAY169
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DAY169
+        - name: DB_PASSWORD_DAY169
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DAY169
