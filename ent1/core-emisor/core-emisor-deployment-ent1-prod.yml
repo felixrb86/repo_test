@@ -1264,3 +1264,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DAY169
+        - name: DB_USER_DSA169
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DSA169
+        - name: DB_PASSWORD_DSA169
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DSA169
