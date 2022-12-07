@@ -1293,3 +1293,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DLE170
+        - name: DB_USER_DOG171
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DOG171
+        - name: DB_PASSWORD_DOG171
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DOG171
