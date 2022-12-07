@@ -1304,3 +1304,13 @@ spec:
             secretKeyRef:
               name: mysecret
               key: DB_PASSWORD_DOG171
+        - name: DB_USER_DYH172
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_USER_DYH172
+        - name: DB_PASSWORD_DYH172
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: DB_PASSWORD_DYH172
