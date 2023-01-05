@@ -1,0 +1,153 @@
+# ////////////////////////////////////////////////////////////////////
+# Deploy de core-client-panel
+# ////////////////////////////////////////////////////////////////////
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    kubernetes.io/change-cause: "Deploy en ent1-dev 1.0"
+  name: core-client-panel-ent1-dev
+  namespace: ent1-dev
+  labels:
+    app-name: core-client-panel-ent1-dev
+    app.kubernetes.io/instance: core-client-panel-ent1-dev
+    env: dev
+    emisor: ent1-dev
+    componente: core-client-panel
+spec:
+  revisionHistoryLimit: 5
+  ##replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 100%
+      maxUnavailable: 0
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      componente: core-client-panel
+      emisor: ent1-dev
+      env: dev
+  template:
+    metadata:
+      labels:
+        componente: core-client-panel
+        emisor: ent1-dev
+        env: dev
+    spec:
+      terminationGracePeriodSeconds: 45
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: tenant
+                operator: In
+                values:
+                - ent
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 50
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: componente
+                  operator: In
+                  values:
+                  - core-client-panel
+              topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: core-client-panel
+        image: 891899566293.dkr.ecr.us-east-2.amazonaws.com/cobre/dev/core-client-panel
+        ports:
+          - containerPort: 8080
+        resources:
+          limits:
+            memory: "2001Mi"
+            cpu: "1"
+          requests:
+            memory: "50Mi"
+            cpu: "0.01"
+        lifecycle:
+          preStop:
+            exec:
+              command: 
+                - sh
+                - -c
+                - sleep 25
+        readinessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 10
+        startupProbe:
+          httpGet:
+            path: /actuator/health
+            port: 8080
+          failureThreshold: 30
+          periodSeconds: 10
+        env:
+          - name: MY_POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: MULTITENANCY
+            value: "true"
+          - name: TENANT_FLYWAY
+            value: "false"
+          - name: DB_USER_FJY03
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_FJY03
+          - name: DB_PASSWORD_FJY03
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_FJY03
+          - name: DB_USER_PXT01
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_PXT01
+          - name: DB_PASSWORD_PXT01
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_PXT01
+          - name: DB_USER_CCF56
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_CCF56
+          - name: DB_PASSWORD_CCF56
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_CCF56
+          - name: DB_USER_CCF08
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_CCF08
+          - name: DB_PASSWORD_CCF08
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_CCF08
+          - name: DB_USER_QUARTZ
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_USER_QUARTZ
+          - name: DB_PASSWORD_QUARTZ
+            valueFrom:
+              secretKeyRef:
+                name: mysecret
+                key: DB_PASSWORD_QUARTZ

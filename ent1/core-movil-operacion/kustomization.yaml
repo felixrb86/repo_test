@@ -1,5 +1,5 @@
    commonLabels:
-     app: core-movil-operacion-ent1-prod
+     app: core-movil-operacion-ent1-dev
    resources:
-   - core-movil-operacion-deployment-ent1-prod.yml
-   - core-movil-operacion-svc-ent1-prod.yml
+   - core-movil-operacion-deployment-ent1-dev.yml
+   - core-movil-operacion-svc-ent1-dev.yml

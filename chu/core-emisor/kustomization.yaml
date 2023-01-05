@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-emisor-chu-prod
-   resources:
-   - core-emisor-deployment-chu-prod.yml
-   - core-emisor-svc-chu-prod.yml

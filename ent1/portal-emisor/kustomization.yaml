@@ -1,0 +1,5 @@
+   commonLabels:
+     app: portal-emisor-ent1-dev
+   resources:
+   - portal-emisor-deployment-ent1-dev.yml
+   - portal-emisor-svc-ent1-dev.yml

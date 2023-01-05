@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-emisor-cby-prod
-   resources:
-   - core-emisor-deployment-cby-prod.yml
-   - core-emisor-svc-cby-prod.yml

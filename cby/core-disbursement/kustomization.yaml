@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-disbursement-cby-prod
-   resources:
-   - core-disbursement-deployment-cby-prod.yml
-   - core-disbursement-svc-cby-prod.yml

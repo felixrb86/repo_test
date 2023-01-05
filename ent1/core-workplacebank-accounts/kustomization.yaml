@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-workplacebank-accounts-ent1-dev
+   resources:
+   - core-workplacebank-accounts-deployment-ent1-dev.yml
+   - core-workplacebank-accounts-svc-ent1-dev.yml

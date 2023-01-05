@@ -1,0 +1,40 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: core-movil-operacion-ent1-dev
+  namespace: ent1-dev
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: core-movil-operacion-ent1-dev
+  pollingInterval: 15 #no está haciendo nada
+  cooldownPeriod: 180 #no está haciendo nada
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  advanced:                                          
+    restoreToOriginalReplicaCount: false
+    horizontalPodAutoscalerConfig:
+      behavior:
+        scaleDown:
+          stabilizationWindowSeconds: 90 #Validar
+          policies:
+          - type: Pods
+            value: 1
+            periodSeconds: 30
+        scaleUp:
+          stabilizationWindowSeconds: 180
+          policies:
+          - type: Pods
+            value: 2
+            periodSeconds: 90
+          selectPolicy: Max
+  triggers:
+  - type: memory
+    metricType: AverageValue
+    metadata:
+      value: "1600Mi" #Depende del limite del Deployment (80%)
+  - type: cpu
+    metricType: AverageValue
+    metadata:
+      value: "0.8" #Depende del limite del Deployment (80%)
