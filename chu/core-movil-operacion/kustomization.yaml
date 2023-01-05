@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-movil-operacion-chu-prod
-   resources:
-   - core-movil-operacion-deployment-chu-prod.yml
-   - core-movil-operacion-svc-chu-prod.yml

@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-movil-transaccional-cri-prod
-   resources:
-   - core-movil-transaccional-deployment-cri-prod.yml
-   - core-movil-transaccional-svc-cri-prod.yml

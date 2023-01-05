@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-disbursement-chu-prod
-   resources:
-   - core-disbursement-deployment-chu-prod.yml
-   - core-disbursement-svc-chu-prod.yml

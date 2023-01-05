@@ -1,4 +1,0 @@
-   commonLabels:
-     app: config-argocd-ent3-prod
-   resources:
-   - secrets-prod-ent3.yml

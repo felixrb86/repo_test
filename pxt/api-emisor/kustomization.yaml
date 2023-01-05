@@ -1,6 +1,0 @@
-   commonLabels:
-     app: api-emisor-pxt-prod
-   resources:
-   - api-emisor-deployment-pxt-prod.yml
-   - api-emisor-svc-pxt-prod.yml
-  #  - api-emisor-hpa-pxt-prod.yml

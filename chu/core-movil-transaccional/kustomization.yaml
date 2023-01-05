@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-movil-transaccional-chu-prod
-   resources:
-   - core-movil-transaccional-deployment-chu-prod.yml
-   - core-movil-transaccional-svc-chu-prod.yml

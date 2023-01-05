@@ -1,5 +1,0 @@
-   commonLabels:
-     app: portal-emisor-cri-prod
-   resources:
-   - portal-emisor-deployment-cri-prod.yml
-   - portal-emisor-svc-cri-prod.yml

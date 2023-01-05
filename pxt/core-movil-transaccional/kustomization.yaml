@@ -1,5 +1,0 @@
-   commonLabels:
-     app: core-movil-transaccional-pxt-prod
-   resources:
-   - core-movil-transaccional-deployment-pxt-prod.yml
-   - core-movil-transaccional-svc-pxt-prod.yml
