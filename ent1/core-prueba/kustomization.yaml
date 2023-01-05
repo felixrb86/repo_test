@@ -1,0 +1,5 @@
+commonLabels:
+ app: -
+resources: 
+- -deployment-.yml
+- -svc-.yml

@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra-ent1-dev
+  namespace: tools
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Cobre-Colombia/gitops'
+    path: ent1
+    targetRevision: develop
+  destination:
+    server: 'https://B82FF3C3E436A5DF312D1AEFFC026846.gr7.us-east-2.eks.amazonaws.com'
+    namespace: ent1-dev
+  annotations:
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-port: traffic-port
+    alb.ingress.kubernetes.io/healthy-threshold-count: '5'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+    alb.ingress.kubernetes.io/healthcheck-path: /actuator/health
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '30'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+    alb.ingress.kubernetes.io/success-codes: 200-499
+    alb.ingress.kubernetes.io/tags: Environment=DEV

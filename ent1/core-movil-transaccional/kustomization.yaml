@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-movil-transaccional-ent1-dev
+   resources:
+   - core-movil-transaccional-deployment-ent1-dev.yml
+   - core-movil-transaccional-svc-ent1-dev.yml

@@ -1,0 +1,6 @@
+   commonLabels:
+     app: core-disbursement-ent1-dev
+   resources:
+   - core-disbursement-deployment-ent1-dev.yml
+   - core-disbursement-svc-ent1-dev.yml
+   - core-disbursement-hpa-ent1-dev.yml

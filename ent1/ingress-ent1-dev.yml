@@ -1,0 +1,103 @@
+# ********************************************************************* 
+# ********************************************************************* 
+# Ingress de ent1-dev dev
+# ********************************************************************* 
+# ********************************************************************* 
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "ent1-dev"
+  namespace: "ent1-dev"
+  annotations:
+    kubernetes.io/ingress.class: "alb"
+    alb.ingress.kubernetes.io/group.name: "dev"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}]'
+  labels:
+    app-name: ent1-dev
+spec:
+  rules:
+    - host: api-emisor-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "api-emisor"
+            servicePort: 8080
+    - host: core-emisor-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-emisor"
+            servicePort: 8080       
+    - host: core-movil-operacion-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-movil-operacion"
+            servicePort: 8080         
+    - host: core-movil-registro-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-movil-registro"
+            servicePort: 8080       
+    - host: core-movil-transaccional-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-movil-transaccional"
+            servicePort: 8080             
+    - host: core-transaccional-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-transaccional"
+            servicePort: 8080
+    - host: core-ussenterprise-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-ussenterprise"
+            servicePort: 8080   
+    - host: core-workplacebank-loans-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-workplacebank-loans"
+            servicePort: 8080            
+    - host: portal-emisor-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "portal-emisor"
+            servicePort: 8080
+    - host: core-disbursement-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-disbursement"
+            servicePort: 8080
+    - host: core-workplacebank-accounts-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-workplacebank-accounts"
+            servicePort: 8080
+    - host: core-client-panel-ent1.dev.cobre.co
+      http:
+        paths:
+        - path: /*
+          backend:
+            serviceName: "core-client-panel"
+            servicePort: 8080

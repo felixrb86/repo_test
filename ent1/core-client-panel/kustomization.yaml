@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-client-panel-ent1-dev
+   resources:
+   - core-client-panel-deployment-ent1-dev.yml
+   - core-client-panel-svc-ent1-dev.yml

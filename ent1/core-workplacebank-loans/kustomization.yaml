@@ -1,0 +1,5 @@
+   commonLabels:
+     app: core-workplacebank-loans-ent1-dev
+   resources:
+   - core-workplacebank-loans-deployment-ent1-dev.yml
+   - core-workplacebank-loans-svc-ent1-dev.yml

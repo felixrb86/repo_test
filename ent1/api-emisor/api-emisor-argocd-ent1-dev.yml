@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: api-emisor-ent1-dev
+  namespace: tools
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/Cobre-Colombia/gitops'
+    path: ent1/api-emisor
+    targetRevision: develop
+  destination:
+    server: 'https://B82FF3C3E436A5DF312D1AEFFC026846.gr7.us-east-2.eks.amazonaws.com'
+    namespace: ent1-dev
+  syncPolicy:
+    automated: {}
